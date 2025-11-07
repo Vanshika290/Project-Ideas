@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Resume Ranking — Results</title>
+</head>
+<body>
+  <h1>Resume Ranking — Top Candidates</h1>
+  {% if message %}
+    <p>{{ message }}</p>
+  {% else %}
+    <table border="1" cellpadding="6" cellspacing="0">
+      <tr>
+        <th>Rank</th><th>Candidate ID</th><th>Score</th><th>Years Exp</th><th>Num Skills</th><th>Details</th>
+      </tr>
+      {% for r in df %}
+        <tr>
+          <td>{{ loop.index }}</td>
+          <td>{{ r['candidate_id'] }}</td>
+          <td>{{ '%.4f' % r['score'] }}</td>
+          <td>{{ r.get('years_experience','') }}</td>
+          <td>{{ r.get('num_skills_total','') }}</td>
+          <td><a href="/candidate/{{ r['candidate_id'] }}">View explanation</a></td>
+        </tr>
+      {% endfor %}
+    </table>
+  {% endif %}
+</body>
+</html>

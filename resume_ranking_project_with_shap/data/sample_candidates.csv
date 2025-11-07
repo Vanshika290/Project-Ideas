@@ -1,0 +1,6 @@
+candidate_id,years_experience,skills,education_level,last_company,months_gap,location,label
+C001,5,python,java,react,Bachelors,StartupA,2,Local,1
+C002,3,java,react,Bachelors,CompanyB,0,Local,0
+C003,8,python,aws,ml,Masters,BigTech,1,Remote,1
+C004,2,html,css,js,HighSchool,SmallCo,6,Local,0
+C005,6,python,java,aws,Masters,CompanyC,0,Local,1
