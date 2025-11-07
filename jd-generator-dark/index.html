@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>JD Generator</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #0d1117;
+      color: #e6edf3;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+    .container {
+      background: #161b22;
+      margin-top: 40px;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+      max-width: 650px;
+      width: 100%;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #58a6ff;
+    }
+    label {
+      display: block;
+      margin: 12px 0 6px;
+      font-weight: bold;
+      color: #c9d1d9;
+    }
+    input, button {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: 1px solid #30363d;
+      font-size: 15px;
+      background: #0d1117;
+      color: #e6edf3;
+    }
+    input:focus {
+      border-color: #58a6ff;
+      outline: none;
+      box-shadow: 0 0 8px #58a6ff66;
+    }
+    button {
+      background: linear-gradient(90deg, #58a6ff, #1f6feb);
+      color: white;
+      border: none;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: linear-gradient(90deg, #1f6feb, #58a6ff);
+      transform: scale(1.02);
+    }
+    h3 {
+      margin-top: 25px;
+      text-align: center;
+      color: #58a6ff;
+    }
+    pre {
+      background: #0d1117;
+      padding: 18px;
+      border-radius: 12px;
+      font-family: "Courier New", monospace;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      border: 1px solid #30363d;
+      color: #e6edf3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>🚀 Job Description Generator</h2>
+    <form id="form">
+      <label>Company</label>
+      <input id="company" placeholder="e.g. Acme Corp" required>
+
+      <label>Role</label>
+      <input id="role" placeholder="e.g. Software Engineer" required>
+
+      <label>Seniority</label>
+      <input id="seniority" placeholder="e.g. Mid-level" required>
+
+      <label>Experience (Years)</label>
+      <input id="experience" type="number" placeholder="e.g. 2" required>
+
+      <label>Skills</label>
+      <input id="skills" placeholder="e.g. JavaScript, Node.js" required>
+
+      <label>Location</label>
+      <input id="location" placeholder="e.g. Remote" required>
+
+      <button type="submit">✨ Generate JD</button>
+    </form>
+
+    <h3>Generated JD</h3>
+    <pre id="result">Your JD will appear here...</pre>
+  </div>
+
+  <script>
+    function generateJD(data) {
+      return `# ${data.role} - ${data.seniority}
+Company: ${data.company} | Location: ${data.location}
+
+About the Role:
+We are looking for a ${data.seniority} ${data.role} to join our team.
+The ideal candidate will have ${data.experience} years of experience and strong skills in ${data.skills}.
+
+Why Join Us?
+At ${data.company}, we believe in innovation, collaboration, and growth.
+If you are passionate about technology and want to make an impact, apply now!`;
+    }
+
+    document.getElementById('form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const data = {
+        company: document.getElementById('company').value,
+        role: document.getElementById('role').value,
+        seniority: document.getElementById('seniority').value,
+        experience: document.getElementById('experience').value,
+        skills: document.getElementById('skills').value,
+        location: document.getElementById('location').value
+      };
+      document.getElementById('result').textContent = generateJD(data);
+    });
+  </script>
+</body>
+</html>
